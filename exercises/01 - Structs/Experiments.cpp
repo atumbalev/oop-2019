@@ -75,17 +75,17 @@ int main(int argc, char const *argv[])
     void *hack = static_cast<void*>(&tp);
 
     // hack points at the first integer
-    std::cout << "testPadding.a accessed throught a pointer and some black magic" << std::endl;
+    std::cout << "testPadding.a accessed through a pointer and some black magic" << std::endl;
     std::cout << *(static_cast<int*>(hack)) << std::endl << std::endl;
     
     // move hack to next member
     hack += 8;
-    std::cout << "testPadding.b accessed throught a pointer and some black magic" << std::endl;
+    std::cout << "testPadding.b accessed through a pointer and some black magic" << std::endl;
     std::cout << *(static_cast<double*>(hack)) << std::endl << std::endl;
 
     // move hack to c
     hack += 8;
-    std::cout << "testPadding.c accessed throught a pointer and some black magic" << std::endl;
+    std::cout << "testPadding.c accessed through a pointer and some black magic" << std::endl;
     std::cout << *(static_cast<int*>(hack)) << std::endl << std::endl;
 
     // Non-static member initialization (C++11)

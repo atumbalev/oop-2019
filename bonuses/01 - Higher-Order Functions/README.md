@@ -1,4 +1,4 @@
-# Bonus 1. Higher-Ordr Functions
+# Bonus 1. Higher-Order Functions
 
 ## Problem
 
