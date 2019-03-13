@@ -13,7 +13,7 @@ int main(int argc, char const *argv[])
 
 	// When new fails it throws std::bad_alloc and return nullptr
 	int *b = new (std::nothrow) /*so the program doesn't terminate*/ int[10000000000];
-	std::cout << b << std::endl;
+	std::cout << b << std::endl; // Failed to allocate memory => b is nullptr
 
 	// Terminate called after bad_alloc
 	int *c = new int[10000000000];
