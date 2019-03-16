@@ -1,4 +1,5 @@
 #include "Company.hpp"
+#include "Worker.hpp"
 
 int main(int argc, char const *argv[])
 {
