@@ -3,7 +3,7 @@ FLAGS=-std=c++14
 output: main.o Worker.o Company.o
 	g++ main.o Worker.o Company.o ${FLAGS} -o output
 
-main.o: main.cpp Company.hpp
+main.o: main.cpp Company.hpp Worker.hpp
 	g++ ${FLAGS} -c main.cpp
 
 Worker.o: Worker.hpp Worker.cpp
