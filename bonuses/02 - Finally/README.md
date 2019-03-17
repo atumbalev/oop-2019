@@ -1,4 +1,4 @@
-# Bonus 2. Finall
+# Bonus 2. Finally
 
 ## Problem
 
