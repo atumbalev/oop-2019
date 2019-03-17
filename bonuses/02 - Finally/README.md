@@ -10,21 +10,21 @@
 ```c++
 void test()
 {
-	// somehow call finally here with a function that prints bye
-	std::cout << "Hi" << std::endl;
+    // somehow call finally here with a function that prints bye
+    std::cout << "Hi" << std::endl;
 }
 
 int main(int argc, char const *argv[])
 {
-	test();
-	std::cout << "End of Main" << std::endl;
-	return 0;
+    test();
+    std::cout << "End of Main" << std::endl;
+    return 0;
 }
 
 /* Output
-	Hi
-	Bye
-	End of Main
+    Hi
+    Bye
+    End of Main
 */
 ```
 
