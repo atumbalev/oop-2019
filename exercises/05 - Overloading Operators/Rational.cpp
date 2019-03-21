@@ -1,8 +1,9 @@
 #include <iostream>
 #include <cassert>
 
-namespace Rational
+namespace FMIMath
 {
+
     int gcd(int a, int b)
     {
         while (a && b)
@@ -10,7 +11,7 @@ namespace Rational
             std::swap(a, b);
             b %= a;
         }
-        
+
         return a ? a : b;
     }
 
@@ -18,23 +19,24 @@ namespace Rational
     {
     public:
         Rational(int _nom = 0, int _denom = 1);
-        
+
         operator bool() const;
         operator double() const;
-        
+
         Rational operator++(int);
         Rational& operator++();
         Rational& operator+=(const Rational& other);
         Rational& operator+=(int other);
-        
-        int& operator[](unsigned index);
+
+        // These don't really make sense in the context of rational numbers, but we are using them as example
+        int operator[](unsigned index); // This normally returns a reference, but that will break encapsulation and in turn the invariant
         const int& operator[](unsigned index) const;
-        
-        friend std::istream& operator>>(std::istream& in, Rational& rational);
+
+        friend std::istream& operator>>(std::istream& in, Rational& rat);
     private:
         int nom;
         int denom;
-        
+
         void normalize();
     };
 
@@ -62,7 +64,7 @@ namespace Rational
     {
         in >> rational.nom >> rational.denom;
         rational.normalize();
-        
+
         return in;
     }
 
@@ -78,7 +80,7 @@ namespace Rational
         }
     }
 
-    int& Rational::operator[](unsigned index)
+    int Rational::operator[](unsigned index)
     {
         assert(index == 0 || index == 1);
         switch(index)
@@ -167,11 +169,10 @@ namespace Rational
         return tmp;
     }
 }
-
 int main()
 {
-    Rational::Rational x;
-    Rational::Rational y(8,6);
+    FMIMath::Rational x;
+    FMIMath::Rational y(8, 6);
     
     std::cout << x << " " << y << std::endl;
     
