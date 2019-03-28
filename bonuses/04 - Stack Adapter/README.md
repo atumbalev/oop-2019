@@ -24,8 +24,8 @@ The stack should:
 ## Notes
 
 This task will also demonstrate some basic OOP principles:
-* Do **NOT** implement methods or keep data that you do not actually need
-* You do **NOT** need to know how the 3 STL containers actually work, just that they keep a sequence of elements
+* You do **NOT** need to know how the 3 STL containers actually work, just that they keep a sequence of elements (Abstraction)
+* Do **NOT** implement methods or keep data that you do not need (Not going to spoil this one)
 
 ## Hint
 

@@ -9,6 +9,7 @@
 	* Specializations(?)
 * Containers
 	* Rule of 0
+	* Standard Template Library
 * Stack
 	* Sequential Implementation
 	* Problems with stack
@@ -16,5 +17,5 @@
 ## Problem
 
 * Implement a stack
-* RPN Evaluations
+* RPN Evaluation
 * Brackets balancing

@@ -16,9 +16,6 @@
 	* Copy and Swap Idiom
 	* Copy Elision
 	* Reusing Buffers
-* Rule of 0
-* Smart Pointers and Containers (just some basics)
-
 
 ## Problem (continued from last time)
 
