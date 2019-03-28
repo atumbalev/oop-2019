@@ -1,4 +1,4 @@
-# Bonus 2. Optional
+# Bonus 3. Optional
 
 ## Problem
 
@@ -14,6 +14,10 @@ Implement a class OptionalInt that may or may not hold a valid integer value and
 Also implement:
 * A sensible operator+ for 2 optional ints
 * A binary search function for an array that returns an optional
+
+## Bonus Bonus!
+
+Instead of OptionalInt, implement an Optional class that can store any type of value.
 
 ## Deadline
 
