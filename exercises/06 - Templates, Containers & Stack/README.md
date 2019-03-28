@@ -3,19 +3,19 @@
 ## Gameplan
 
 * Templates
-	* Functions
-	* Classes
-	* Non-type parameters
-	* Specializations(?)
+    * Functions
+    * Classes
+    * Non-type parameters
+    * Specializations(?)
 * Containers
-	* Rule of 0
-	* Standard Template Library
+    * Rule of 0
+    * Standard Template Library
 * Stack
-	* Sequential Implementation
-	* Problems with stack
+    * Sequential Implementation
+    * Problems with stack
 
 ## Problem
 
 * Implement a stack
-* RPN Evaluation
 * Brackets balancing
+* RPN Evaluation
