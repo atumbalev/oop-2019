@@ -14,6 +14,7 @@ Implement a generic resizing array (aka vector) with the following properties:
     * operators - that:
         * Subtracts an integer from iterator to move it backwards
         * Subtracts 2 iterators to return the how many elements away from each other they are
+    * operators += and -=
 
 * Default constructor that creates an empty vector
 * Constructor that takes a number and reserves enough space for that many elements
