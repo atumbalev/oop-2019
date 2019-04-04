@@ -39,7 +39,7 @@ class Classic
             std::cout << "Allocating memory" << std::endl;
             name = new char[strlen(other.name) + 1];
             // PROBLEM: If this allocation fails now, we can't get the previous name back
-            strncpy(name, other.name);
+            strncpy(name, other.name, strlen(other.name) + 1);
         }
 
         return *this;
@@ -87,12 +87,12 @@ class CopyAndSwap
         // If the allocation fails, the function doesn't get called and we don't lose data
         // Memory is freed by the destructor of other
         swap(*this, other);
-        return *this;
+        return *this; // NOLINT
     }
 
     /*
     CopyAndSwap& operator=(const CopyAndSwap& other)
-    // No copy elision, not recommender because the compiler is better at making copies than us
+    // No copy elision, not recommended because the compiler is better at making copies than us
     {
         CopyAndSwap temp(other);
         // Allocation may fail before the freeing (so no loss of data)

@@ -75,7 +75,7 @@ const int& Rational::operator[](unsigned index) const
     {
         case 0:
             return nom;
-        case 1:
+        default:
             return denom;
     }
 }
@@ -87,7 +87,7 @@ int Rational::operator[](unsigned index)
     {
         case 0:
             return nom;
-        case 1:
+        default:
             return denom;
     }
 }
@@ -162,7 +162,7 @@ Rational& Rational::operator++()
     return *this += 1;
 }
 
-Rational Rational::operator++(Rational)
+Rational Rational::operator++(int)  // NOLINT
 {
     Rational tmp = *this;
     ++*this;

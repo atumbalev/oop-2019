@@ -17,9 +17,8 @@ int main()
 
     // Terminate called after bad_alloc
     int *c = new int[10000000000];
-
     // This doesn't get called because the program terminated
-    delete a;
+    delete [] a;
 
     return 0;
 }

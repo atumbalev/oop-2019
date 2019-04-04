@@ -6,14 +6,16 @@
 void Company::del()
 {
     delete [] name;
+    name = nullptr;
     delete [] workers;
+    workers = nullptr;
 }
 
 void Company::setName(const char* _name)
 {
     if (!_name)
     {
-        _name = nullptr;
+        _name = "";
     }
 
     delete [] name;

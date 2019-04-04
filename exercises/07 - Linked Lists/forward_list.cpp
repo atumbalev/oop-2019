@@ -42,6 +42,7 @@ class forward_list
 
         T& operator*()
         {
+            assert(m_ptr);
             return m_ptr->m_data;
         }
 
@@ -148,11 +149,13 @@ class forward_list
 
     T& front()
     {
+        assert(!empty());
         return m_start->m_data;
     }
 
     const T& front() const
     {
+        assert(!empty());
         return m_start->m_data;
     }
 

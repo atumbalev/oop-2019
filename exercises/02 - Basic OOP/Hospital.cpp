@@ -98,7 +98,7 @@ class Patient
     void print() const
     {
         std::cout << name << " " << roomNumber << " ";
-        assignedNurse->print();
+        if (assignedNurse) assignedNurse->print();
     }
  private:
     char name[MAX_NAME];
