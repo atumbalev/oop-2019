@@ -4,7 +4,7 @@ using Procedure = void(*)();
 
 struct final_action {
     Procedure proc;
-    final_action(Procedure _proc) : proc{_proc} {}
+    explicit final_action(Procedure _proc) : proc{_proc} {}
     ~final_action() { proc(); }
 };
 

@@ -19,10 +19,10 @@ void Company::setName(const char* _name)
     delete [] name;
     int len = strlen(_name) + 1;
     name = new char[len + 1];
-    strcpy(name, _name);
+    strncpy(name, _name, len + 1);
 }
 
-void Company::copy(const Company& other)
+void Company::copyCompany(const Company& other)
 {
     setName(other.name);
     capacity = other.capacity;
@@ -47,7 +47,7 @@ Company::Company(const char* _name, size_t _capacity):
 Company::Company(const Company& other)
 {
     name = nullptr;
-    copy(other);
+    copyCompany(other);
 }
 
 Company::~Company()
@@ -60,7 +60,7 @@ Company& Company::operator=(const Company& other)
     if (this != &other)
     {
         del();
-        copy(other);
+        copyCompany(other);
     }
 
     return *this;

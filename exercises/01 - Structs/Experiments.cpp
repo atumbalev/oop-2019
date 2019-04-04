@@ -69,7 +69,7 @@ int main()
     std::cout << sizeof(packed) << std::endl << std::endl;
 
     // Initializer list (C++11)
-    testPadding tp = {1, 1.25, 2,};
+    testPadding tp = {1, 1.25, 2, };
 
     // Test offset (DON'T EVER DO THIS! ONLY VILAINS DO THIS!)
     void *hack = static_cast<void*>(&tp);
@@ -77,7 +77,7 @@ int main()
     // hack points at the first integer
     std::cout << "testPadding.a accessed through a pointer and some black magic" << std::endl;
     std::cout << *(static_cast<int*>(hack)) << std::endl << std::endl;
-    
+
     // move hack to next member
     hack += 8;
     std::cout << "testPadding.b accessed through a pointer and some black magic" << std::endl;

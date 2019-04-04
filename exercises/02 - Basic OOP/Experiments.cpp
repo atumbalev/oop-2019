@@ -4,9 +4,9 @@
 // Testing access specfiers and const qualifers
 class test
 {
-private:
+ private:
     int a = 10;
-public:
+ public:
     int getA() const
     {
         return a;
@@ -31,15 +31,15 @@ public:
 // Test return types of selectors
 class test2
 {
-private:
+ private:
     char a[20] = "Kappa";
     int b = 10;
     char *c;
-public:
+ public:
     test2()
     {
         c = new char[20];
-        strcpy(c, "Kappa");
+        strncpy(c, "Kappa", 6);
     }
     void print() const
     {
@@ -68,7 +68,7 @@ public:
 
 class PublicIntArray
 {
-public:
+ public:
     int arr[10];
     int size;
 
@@ -76,7 +76,7 @@ public:
     {
         for (int i = 0; i < size; ++i)
         {
-            std::cout << arr[i] << " "; 
+            std::cout << arr[i] << " ";
         }
 
         std::cout << std::endl;
@@ -86,7 +86,7 @@ public:
 class TestCascade
 // Or when is it a good idea to return a reference
 {
-public:
+ public:
     TestCascade& add(int x)
     {
         a+=x;
@@ -97,7 +97,7 @@ public:
     {
         return a;
     }
-private:
+ private:
     int a = 0;
 };
 
@@ -106,14 +106,17 @@ int main()
     // Test access specifiers
     test t1, t2;
     // std::cout << t1.a << std::endl; // ERROR: int test::a is private within this context
-    std::cout << t1.getA() << std::endl; // SUCCESS
+    std::cout << t1.getA() << std::endl;  // SUCCESS
 
-    std::cout << t1.getOtherObjectsA(t2) << std::endl; // SUCCESS: Access modifiers work on class level, not object level
+    std::cout << t1.getOtherObjectsA(t2) << std::endl;
+    // SUCCESS: Access modifiers work on class level, not object level
 
     // Test const qualifer
     const test t3;
-    t3.constPrint(); // SUCCESS
-    // t3.nonConstPrint(); // ERROR: Passing 'const test' as 'this' argument discard qualifiers, nonConstPrint() doesn't change anything but the compiler doesn't know that
+    t3.constPrint();  // SUCCESS
+    // t3.nonConstPrint();
+    // ERROR: Passing 'const test' as 'this' argument discard qualifiers,
+    // nonConstPrint() doesn't change anything but the compiler doesn't know that
 
     // Test return values of selectors
     test2 x;
@@ -126,7 +129,7 @@ int main()
 
     // But the latter 2 break the encapsulation
     // x.correctGet()[0] = 'Q'; // ERROR: assignment of read-only location
-    strcpy(x.wrongGet1(), "monkaS");
+    strncpy(x.wrongGet1(), "monkaS", 7);
     x.wrongGet2() = 322;
     x.print();
 
@@ -137,10 +140,10 @@ int main()
 
         // Why do we bother with encapsulation?
     std::cout << std::endl;
-    PublicIntArray p{{1,2,3}, 3};
+    PublicIntArray p{{1, 2, 3, }, 3};
     p.print();
     // But size is not public, so we can freely change it
-    p.size = 1000000; // Oh, bother
+    p.size = 1000000;  // Oh, bother
     // p.print(); // 1 2 3 + a  bunch of random numbers followed by Segmentation Fault
 
     return 0;

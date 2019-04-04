@@ -1,13 +1,13 @@
-#ifndef WORKER_H
-#define WORKER_H
+#ifndef EXERCISES_04___DYNAMIC_ARRAYS_COMPANY_WORKER_HPP_
+#define EXERCISES_04___DYNAMIC_ARRAYS_COMPANY_WORKER_HPP_
 
 #include <iostream>
 
 class Worker
 {
-public:
+ public:
     // Big 4
-    Worker(const char* _name = "", const char* _position = "", double _salary = 0);
+    explicit Worker(const char* _name = "", const char* _position = "", double _salary = 0);
     ~Worker();
     Worker(const Worker& other);
     Worker& operator=(const Worker& other);
@@ -23,13 +23,13 @@ public:
 
     void print() { std::cout << name << " " << position << " " << salary << std::endl; }
     friend void swap(Worker& lhs, Worker& rhs);
-private:
+ private:
     char *name;
     char *position;
     double salary;
 
     void del();
-    void copy(const Worker& other);
+    void copyWorker(const Worker& other);
 };
 
-#endif
+#endif  // EXERCISES_04___DYNAMIC_ARRAYS_COMPANY_WORKER_HPP_

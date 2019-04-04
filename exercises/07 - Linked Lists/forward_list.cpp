@@ -7,9 +7,9 @@
 template<class T>
 class forward_list
 {
-private:
+ private:
     struct node;
-public:
+ public:
     // Types required to work as a container for different adapters
     // Generally a good practice to use size_type instead of size_t in the implementation (avoid conflicts)
     using value_type = T;
@@ -25,7 +25,7 @@ public:
         using pointer = T*;
         using reference = T&;
         using iterator_category = std::forward_iterator_tag;
-        iterator(node* ptr = nullptr): m_ptr{ptr} {}
+        explicit iterator(node* ptr = nullptr): m_ptr{ptr} {}
         iterator& operator++()
         {
             assert(m_ptr);
@@ -75,9 +75,9 @@ public:
     forward_list(): m_start{nullptr}, m_size{0} {}
     ~forward_list()
     {
-        // TODO: rewrite using pop_front / erase
+        // todo: rewrite using pop_front / erase
         node* tmp = m_start;
-        while(tmp)
+        while (tmp)
         {
             tmp = tmp->m_next;
             delete m_start;
@@ -86,12 +86,13 @@ public:
     }
 
     template<class InputIt>
-    forward_list(InputIt begin, InputIt end); // Copy contents from one iterator to the other, Use insert_after / push_front
+    forward_list(InputIt begin, InputIt end);
+    // Copy contents from one iterator to the other, Use insert_after / push_front
     // templated because list and initializer_list use different kinds of iterators
 
     forward_list(const forward_list& other): m_size{other.m_size}
     {
-        // TODO: rewrite using forward_list(InputIt, InputIt) with other.begin(), other.end()
+        // todo: rewrite using forward_list(InputIt, InputIt) with other.begin(), other.end()
         if (empty())
         {
             m_start = new node{other.m_start->m_data};
@@ -99,7 +100,7 @@ public:
 
         node* p1 = other.m_start->m_next;
         node* p2 = m_start;
-        while(p1)
+        while (p1)
         {
             p2->m_next = new node{p1->m_data};
             p1 = p1->m_next;
@@ -109,14 +110,15 @@ public:
 
     forward_list(const std::initializer_list<int>& ls)
     {
-        // TODO: rewrite using forward_list(InputIt, InputIt) with ls.begin(), ls.end()
-        for (auto it = ls.end() - 1; it != ls.begin() - 1; --it)  // UGH, be we only implemented push_front (you reap what you sow)
+        // todo: rewrite using forward_list(InputIt, InputIt) with ls.begin(), ls.end()
+        for (auto it = ls.end() - 1; it != ls.begin() - 1; --it)
+        // UGH, be we only implemented push_front (you reap what you sow)
         {
             push_front(*it);
         }
     }
 
-    forward_list& operator=(const forward_list& other); // TODO
+    forward_list& operator=(const forward_list& other);  // todo
     // VERY GOOD IDEA to use copy and swap idiom
 
     void push_front(const T& elem)
@@ -163,7 +165,7 @@ public:
     {
         return iterator(nullptr);
     }
-private:
+ private:
     struct node
     {
         T m_data;
@@ -177,12 +179,12 @@ private:
 int main()
 {
     // Initialize with initializer list
-    forward_list<int> a = {1,2,3};
+    forward_list<int> a = {1, 2, 3, };
 
     for (const int& num : a)
     {
         // Can be read as FOR EVERY ELEMENT const int& IN THE CONTAINER, EXECUTE THE LOOP BODY
-        // Requires begin(), end() (or cbegin, cend) that return an iterator with ++, != and * 
+        // Requires begin(), end() (or cbegin, cend) that return an iterator with ++, != and *
         std::cout << num << std::endl;
     }
 
@@ -194,7 +196,9 @@ int main()
     std::cout << *found;
 
     // Container for a stack (requires member types)
-    std::stack<int, forward_list<int>> st; // This compiles, but won't work because it requires push_back and back that we don't have (you can rename push_front and front to test)
-    
+    // This compiles, but won't work because it requires push_back and back that we don't have
+    // you can rename push_front and front to test
+    std::stack<int, forward_list<int>> st;
+
     return 0;
 }

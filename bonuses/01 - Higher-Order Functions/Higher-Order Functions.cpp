@@ -27,43 +27,43 @@ using BinOperation = double(*)(double, double);
 // Iterative function that sums the numbers between a and b
 int sumIter(int a, int b)
 {
-	int result = 0;
-	for (int i = a; i <= b; i++)
-	{
-		result += i;
-	}
+    int result = 0;
+    for (int i = a; i <= b; i++)
+    {
+        result += i;
+    }
 
-	return result;
+    return result;
 }
 
 // Recursive version of the above
 int sumRec(int a, int b)
 {
-	if (a > b)
-		return 0;
+    if (a > b)
+        return 0;
 
-	return a + sumRec(a + 1, b);
+    return a + sumRec(a + 1, b);
 }
 
 // Product of numbers between a and b
 int multIter(int a, int b)
 {
-	int result = 1;
-	for (int i = a; i <= b; i++)
-	{
-		result *= i;
-	}
+    int result = 1;
+    for (int i = a; i <= b; i++)
+    {
+        result *= i;
+    }
 
-	return result;
+    return result;
 }
 
 // Recursive version
 int multRec(int a, int b)
 {
-	if (a > b)
-		return 1;
+    if (a > b)
+        return 1;
 
-	return a * multRec(a + 1, b);
+    return a * multRec(a + 1, b);
 }
 
 // Too much code repetition
@@ -83,12 +83,12 @@ int addTwo(int x) { return x + 2; }
 // base is the initial result
 // f can mutate the numbers before applying the binary operation
 int accumulate(int a, int b, BinOperation op,
-	Function f, NextFunction nextf, int base)
+    Function f, NextFunction nextf, int base)
 {
-	if (a > b)
-		return base;
+    if (a > b)
+        return base;
 
-	return op(f(a), accumulate(nextf(a), b, op, f, nextf, base));
+    return op(f(a), accumulate(nextf(a), b, op, f, nextf, base));
 }
 
 // demonstrating the use of accumulate
@@ -96,13 +96,13 @@ int accumulate(int a, int b, BinOperation op,
 // same as sumRec
 int sumAcc(int a, int b)
 {
-	return accumulate(a, b, add, id, addOne, 0);
+    return accumulate(a, b, add, id, addOne, 0);
 }
 
 // Same as multRec, notice how we are reusing code now
 int multAcc(int a, int b)
 {
-	return accumulate(a, b, mult, id, addOne, 1);
+    return accumulate(a, b, mult, id, addOne, 1);
 }
 
 // Variations
@@ -110,22 +110,22 @@ int multAcc(int a, int b)
 // Add a function that mutates the numbers before adding them
 int sumSquares(int a, int b)
 {
-	return accumulate(a, b, add, square, addOne, 0);
+    return accumulate(a, b, add, square, addOne, 0);
 }
 
 // Add a function that changes the way we pick the next number
 int sumSquaresSkip(int a, int b)
 {
-	return accumulate(a, b, add, square, addTwo, 0);
+    return accumulate(a, b, add, square, addTwo, 0);
 }
 
 // Test
 void testAccumulate()
 {
-	std::cout << sumAcc(1, 10) << std::endl;
-	std::cout << sumSquares(1, 3) << std::endl;
-	std::cout << sumSquaresSkip(1, 3) << std::endl;
-	std::cout << multAcc(1, 5) << std::endl;
+    std::cout << sumAcc(1, 10) << std::endl;
+    std::cout << sumSquares(1, 3) << std::endl;
+    std::cout << sumSquaresSkip(1, 3) << std::endl;
+    std::cout << multAcc(1, 5) << std::endl;
 }
 
 // derivative of a function
@@ -136,24 +136,25 @@ double const EPS = 0.0001;
 
 double derivative(double x)
 {
-	return (function(x + EPS) - function(x)) / EPS;
+    return (function(x + EPS) - function(x)) / EPS;
 }
 
 Function derive(Function f)
 {
-	function = f;
-	return derivative;
+    function = f;
+    return derivative;
 }
 
 void testDerivative()
 {
-	std::cout << derive(square)(5) << std::endl; // f(x) = x^2 ; f'(x) = 2x ; f'(5) = 10
+    std::cout << derive(square)(5) << std::endl;
+    // f(x) = x^2 ; f'(x) = 2x ; f'(5) = 10
 }
 
 int main()
 {
-	testAccumulate();
-	testDerivative();
+    testAccumulate();
+    testDerivative();
 
-	return 0;
+    return 0;
 }

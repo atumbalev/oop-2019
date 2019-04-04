@@ -5,7 +5,7 @@
 template<typename T>
 class stack
 {
-public:
+ public:
                 stack();
                 stack(const stack& other);
     stack&      operator=(const stack& other);
@@ -17,7 +17,7 @@ public:
     const T&    top() const { return m_data[m_size - 1]; }
     bool        empty() const { return !m_size; }
     size_t      size() const { return m_size; }
-    
+
     friend void swap(stack& lhs, stack& rhs)
     {
         using std::swap;
@@ -25,11 +25,11 @@ public:
         swap(lhs.m_capacity, rhs.m_capacity);
         swap(lhs.m_size, rhs.m_size);
     }
-private:
+ private:
     size_t m_size;
     size_t m_capacity;
     T* m_data;
-    
+
     void resize(size_t newCapcity);
 };
 
@@ -74,7 +74,7 @@ stack<T>& stack<T>::operator=(const stack& other)
             }
         }
     }
-    
+
     return *this;
 }
 
@@ -104,7 +104,7 @@ void stack<T>::push(const T& elem)
     {
         resize((m_capacity * 3 + 1) / 2);
     }
-    
+
     m_data[m_size++] = elem;
 }
 

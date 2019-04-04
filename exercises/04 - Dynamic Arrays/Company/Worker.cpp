@@ -20,7 +20,7 @@ void Worker::setName(const char* _name)
 
     int len = strlen(_name);
     name = new char[len + 1];
-    strcpy(name, _name);
+    strncpy(name, _name, len + 1);
 }
 
 void Worker::setPosition(const char* _position)
@@ -34,10 +34,10 @@ void Worker::setPosition(const char* _position)
 
     int len = strlen(_position);
     position = new char[len + 1];
-    strcpy(position, _position);
+    strncpy(position, _position, len + 1);
 }
 
-void Worker::copy(const Worker& other)
+void Worker::copyWorker(const Worker& other)
 {
     name = position = nullptr;
     setName(other.name);
@@ -64,7 +64,7 @@ Worker::~Worker()
 
 Worker::Worker(const Worker& other)
 {
-    copy(other);
+    copyWorker(other);
 }
 
 Worker& Worker::operator=(const Worker& other)
@@ -72,7 +72,7 @@ Worker& Worker::operator=(const Worker& other)
     if (this != &other)
     {
         del();
-        copy(other);
+        copyWorker(other);
     }
 
     return *this;

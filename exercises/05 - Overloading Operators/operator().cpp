@@ -14,7 +14,7 @@ struct PrintHello
 // These functions can also return things
 struct Return0
 {
-    public:
+ public:
     int operator()() const
     {
         return 0;
@@ -47,7 +47,7 @@ struct Overloaded
     {
         std::cout << "Integer: " << a << std::endl;
     }
-    
+
     void operator()(const char* a) const
     {
         if (a)
@@ -69,7 +69,7 @@ int main()
     std::cout << AddX{21}(30) << std::endl;
     Overloaded{}(10);
     Overloaded{}("Kappa123");
-    
+
     // More on how this can be useful after we learn about templates
     return 0;
 }

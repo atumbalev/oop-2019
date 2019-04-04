@@ -4,9 +4,9 @@
 
 class Company
 {
-public:
+ public:
     // Big 4
-    Company(const char* name = "", size_t capacity = 4);
+    explicit Company(const char* name = "", size_t capacity = 4);
     ~Company();
     Company(const Company& other);
     Company& operator=(const Company& other);
@@ -19,13 +19,13 @@ public:
     void print() const;
     void remove(const char* _name);
     void sort();
-private:
+ private:
     char *name;
     Worker *workers;
     size_t size;
     size_t capacity;
 
     void del();
-    void copy(const Company& other);
+    void copyCompany(const Company& other);
     void extend();
 };

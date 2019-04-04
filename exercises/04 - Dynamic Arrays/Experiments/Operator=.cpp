@@ -4,14 +4,14 @@
 
 class Classic
 {
-public:
-    Classic(const char* _name)
+ public:
+    explicit Classic(const char* _name)
     {
         std::cout << "Constructor" << std::endl;
         assert(_name);
         std::cout << "Allocating Memory" << std::endl;
         name = new char[strlen(_name) + 1];
-        strcpy(name, _name);
+        strncpy(name, _name, strlen(_name) + 1);
     }
 
     Classic(const Classic& other)
@@ -19,7 +19,7 @@ public:
         std::cout << "Copy Constructor" << std::endl;
         std::cout << "Allocating Memory" << std::endl;
         name = new char[strlen(other.name) + 1];
-        strcpy(name, other.name);
+        strncpy(name, other.name, strlen(other.name) + 1);
     }
 
     ~Classic()
@@ -39,25 +39,25 @@ public:
             std::cout << "Allocating memory" << std::endl;
             name = new char[strlen(other.name) + 1];
             // PROBLEM: If this allocation fails now, we can't get the previous name back
-            strcpy(name, other.name);
+            strncpy(name, other.name);
         }
 
         return *this;
     }
-private:
+ private:
     char * name;
 };
 
 class CopyAndSwap
 {
-public:
-    CopyAndSwap(const char* _name)
+ public:
+    explicit CopyAndSwap(const char* _name)
     {
         std::cout << "Constructor" << std::endl;
         assert(_name);
         std::cout << "Allocating Memory" << std::endl;
         name = new char[strlen(_name) + 1];
-        strcpy(name, _name);
+        strncpy(name, _name, strlen(_name) + 1);
     }
 
     CopyAndSwap(const CopyAndSwap& other)
@@ -65,7 +65,7 @@ public:
         std::cout << "Copy Constructor" << std::endl;
         std::cout << "Allocating Memory" << std::endl;
         name = new char[strlen(other.name) + 1];
-        strcpy(name, other.name);
+        strncpy(name, other.name, strlen(other.name) + 1);
     }
 
     ~CopyAndSwap()
@@ -81,7 +81,7 @@ public:
         swap(lhs.name, rhs.name);
     }
 
-    CopyAndSwap& operator=(CopyAndSwap other) // With copy elision
+    CopyAndSwap& operator=(CopyAndSwap other)  // With copy elision
     {
         std::cout << "Operator=" << std::endl;
         // If the allocation fails, the function doesn't get called and we don't lose data
@@ -91,7 +91,8 @@ public:
     }
 
     /*
-    CopyAndSwap& operator=(const CopyAndSwap& other) // No copy elision, not recommender because the compiler is better at making copies than us
+    CopyAndSwap& operator=(const CopyAndSwap& other)
+    // No copy elision, not recommender because the compiler is better at making copies than us
     {
         CopyAndSwap temp(other);
         // Allocation may fail before the freeing (so no loss of data)
@@ -100,20 +101,20 @@ public:
         // Deallocation is handled by temp's destructor
     }
     */
-private:
+ private:
     char * name;
 };
 
 class BufferReusement
 {
-public:
-    BufferReusement(const char* _name)
+ public:
+    explicit BufferReusement(const char* _name)
     {
         std::cout << "Constructor" << std::endl;
         assert(_name);
         std::cout << "Allocating Memory" << std::endl;
         name = new char[strlen(_name) + 1];
-        strcpy(name, _name);
+        strncpy(name, _name, strlen(_name) + 1);
     }
 
     BufferReusement(const BufferReusement& other)
@@ -121,7 +122,7 @@ public:
         std::cout << "Copy Constructor" << std::endl;
         std::cout << "Allocating Memory" << std::endl;
         name = new char[strlen(other.name) + 1];
-        strcpy(name, other.name);
+        strncpy(name, other.name, strlen(other.name) + 1);
     }
 
     ~BufferReusement()
@@ -150,13 +151,13 @@ public:
             }
             else
             {
-                strcpy(name, other.name);
+                strncpy(name, other.name, strlen(other.name) + 1);
             }
         }
 
         return *this;
     }
-private:
+ private:
     char * name;
 };
 

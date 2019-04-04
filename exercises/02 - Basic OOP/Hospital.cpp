@@ -8,7 +8,7 @@ const int MAX_ASSIGNED = 2;
 
 class Nurse
 {
-public:
+ public:
     void setName(const char* _name)
     {
         int len = strlen(_name);
@@ -45,14 +45,14 @@ public:
                   << assignedPatientsCount << std::endl;
     }
 
-private:
+ private:
     char name[MAX_NAME];
     unsigned assignedPatientsCount = 0;
 };
 
 class Patient
 {
-public:
+ public:
     void setName(const char* _name)
     {
         int len = strlen(_name);
@@ -100,7 +100,7 @@ public:
         std::cout << name << " " << roomNumber << " ";
         assignedNurse->print();
     }
-private:
+ private:
     char name[MAX_NAME];
     unsigned roomNumber;
     Nurse *assignedNurse = nullptr;
@@ -108,7 +108,7 @@ private:
 
 class Hospital
 {
-public:
+ public:
     size_t getNumNurses() const
     {
         return numNurses;
@@ -164,8 +164,8 @@ public:
         {
             patients[i].print();
         }
-    } 
-private:
+    }
+ private:
     Nurse nurses[MAX_CAPACITY];
     size_t numNurses = 0;
     Patient patients[MAX_CAPACITY];

@@ -3,7 +3,7 @@
 
 class Worker
 {
-public:
+ public:
     // Cannonical Representation
     Worker(const char* _name = "",
            const char* _position = "",
@@ -28,7 +28,7 @@ public:
 
     Worker& operator=(const Worker& other)
     {
-        if(this != &other)
+        if (this != &other)
         {
             del();
             copy(other);
@@ -49,7 +49,7 @@ public:
 
         int len = strlen(_name);
         name = new char[len + 1];
-        strcpy(name, _name);
+        strncpy(name, _name, len + 1);
     }
 
     void setPosition(const char* _position)
@@ -63,7 +63,7 @@ public:
 
         int len = strlen(_position);
         position = new char[len + 1];
-        strcpy(position, _position);
+        strncpy(position, _position, len + 1);
     }
 
     void setSalary(double _salary)
@@ -75,12 +75,12 @@ public:
     {
         return name;
     }
-    
+
     const char* getPosition() const
     {
         return position;
     }
-    
+
     int getSalary() const
     {
         return salary;
@@ -93,7 +93,7 @@ public:
                   << salary << std::endl;
     }
 
-private:
+ private:
     char *name;
     char *position;
     double salary;
@@ -119,7 +119,7 @@ int main()
     Worker p2 = p1;
     Worker p3;
     p3 = p1;
-    
+
     p1.print();
     p2.print();
     p3.print();

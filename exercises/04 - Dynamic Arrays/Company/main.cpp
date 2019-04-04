@@ -34,7 +34,7 @@ int main()
     c.print();
     std::cout << std::endl;
 
-    c.sort(); // sort by salary
+    c.sort();  // sort by salary
     std::cout << "Sorted by salary: \n";
     c.print();
     std::cout << std::endl;
@@ -51,7 +51,7 @@ int main()
     copyCtorTest.print();
     std::cout << std::endl;
 
-    c.print(); // should have same data
+    c.print();  // should have same data
 
     std::cout << "Copy ctor test finished-------------\n";
 

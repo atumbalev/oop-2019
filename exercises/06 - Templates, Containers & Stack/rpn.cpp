@@ -20,7 +20,7 @@ double rpnEval(const char* expr)
             op2 = st.top();
             st.pop();
             op1 = st.top();
-            switch(expr[i])
+            switch (expr[i])
             {
                 case '+':
                     st.top() = op1 + op2;
@@ -39,7 +39,7 @@ double rpnEval(const char* expr)
         }
     }
 
-    return st.top(); 
+    return st.top();
 }
 
 int main()
