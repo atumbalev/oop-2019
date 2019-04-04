@@ -1,5 +1,5 @@
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 
 const int MAX_PRISONERS = 100;
 const int MAX_NAME_LENGTH = 20;

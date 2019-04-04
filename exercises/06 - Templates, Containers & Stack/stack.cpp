@@ -1,12 +1,12 @@
+#include <cstring>
 #include <iostream>
 #include <stack>
-#include <cstring>
 
 template<typename T>
 class stack
 {
  public:
-                stack();
+                stack() = default;
                 stack(const stack& other);
     stack&      operator=(const stack& other);
                 ~stack();
@@ -15,7 +15,7 @@ class stack
     void        pop() { --m_size; }
     T&          top() { return m_data[m_size - 1]; }
     const T&    top() const { return m_data[m_size - 1]; }
-    bool        empty() const { return !m_size; }
+    bool        empty() const { return !static_cast<bool>(m_size); }
     size_t      size() const { return m_size; }
 
     friend void swap(stack& lhs, stack& rhs)
@@ -26,19 +26,12 @@ class stack
         swap(lhs.m_size, rhs.m_size);
     }
  private:
-    size_t m_size;
-    size_t m_capacity;
-    T* m_data;
+    size_t m_size = 0;
+    size_t m_capacity = 0;
+    T* m_data = nullptr;
 
-    void resize(size_t newCapcity);
+    void resize(size_t newCapacity);
 };
-
-template<typename T>
-stack<T>::stack():
-    m_size(0),
-    m_capacity(8),
-    m_data(new T[m_capacity])
-{}
 
 template<typename T>
 stack<T>::stack(const stack& other):
@@ -102,7 +95,7 @@ void stack<T>::push(const T& elem)
 {
     if (m_size == m_capacity)
     {
-        resize((m_capacity * 3 + 1) / 2);
+        resize(m_capacity ? (m_capacity * 3 + 1) / 2 : 1);
     }
 
     m_data[m_size++] = elem;

@@ -1,7 +1,7 @@
-#include <iostream>
+#include <algorithm>
 #include <cassert>
 #include <initializer_list>
-#include <algorithm>
+#include <iostream>
 #include <stack>
 
 template<class T>
