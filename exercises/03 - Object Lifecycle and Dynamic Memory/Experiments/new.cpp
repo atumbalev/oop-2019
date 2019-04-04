@@ -1,6 +1,6 @@
 #include <iostream>
 
-int main(int argc, char const *argv[])
+int main()
 {
 	// Allocate 40 bytes for 10 ints
 	int *a = new int[10]{1,2,3,4};

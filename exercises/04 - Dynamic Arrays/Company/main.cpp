@@ -1,7 +1,7 @@
 #include "Company.hpp"
 #include "Worker.hpp"
 
-int main(int argc, char const *argv[])
+int main()
 {
     Worker w1("Gosho", "Cleaner", 50);
     Worker w2("Peter", "CEO", 15000);

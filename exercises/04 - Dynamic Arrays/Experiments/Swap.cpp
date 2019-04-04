@@ -57,7 +57,7 @@ private:
 	char * name;
 };
 
-int main(int argc, char const *argv[])
+int main()
 {
 	SwapTest x("Jebaited"), y("DansGame");
 	x.print();

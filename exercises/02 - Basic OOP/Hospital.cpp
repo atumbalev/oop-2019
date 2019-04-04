@@ -173,7 +173,7 @@ private:
 };
 
 
-int main(int argc, char const *argv[])
+int main()
 {
     Patient a, b, c;
     a.setName("Pe6o");

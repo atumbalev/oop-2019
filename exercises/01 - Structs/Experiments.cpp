@@ -44,7 +44,7 @@ struct node
     node* next;
 };
 
-int main(int argc, char const *argv[])
+int main()
 {
     // Initialization and access
     std::cout << "i already initialized with a = 100 and b = 200" << std::endl;

@@ -14,7 +14,7 @@ void test()
     std::cout << "Hi" << std::endl;
 }
 
-int main(int argc, char const *argv[])
+int main()
 {
     test();
     std::cout << "End of Main" << std::endl;

@@ -101,7 +101,7 @@ private:
     int a = 0;
 };
 
-int main(int argc, char const *argv[])
+int main()
 {
     // Test access specifiers
     test t1, t2;

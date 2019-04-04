@@ -66,7 +66,7 @@ bool timeComparator(Prisoner const* p1, Prisoner const* p2)
     return p1->time <= p2->time;
 }
 
-int main(int argc, char const *argv[])
+int main()
 {
     Prisoner p{"Pe6o Pe6o Pe6o Pe6o", 10, 200};
     Prisoner m{"Me6o", 20, 40};

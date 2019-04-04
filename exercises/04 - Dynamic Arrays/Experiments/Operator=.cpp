@@ -160,7 +160,7 @@ private:
     char * name;
 };
 
-int main(int argc, char const *argv[])
+int main()
 {
     Classic c1("Kappa"), c2("Mappa");
     std::cout << "--------------------" << std::endl;

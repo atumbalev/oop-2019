@@ -174,7 +174,7 @@ private:
     size_t m_size = 0;
 };
 
-int main(int argc, char const *argv[])
+int main()
 {
     // Initialize with initializer list
     forward_list<int> a = {1,2,3};

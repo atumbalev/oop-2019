@@ -113,7 +113,7 @@ private:
     }
 };
 
-int main(int argc, char const *argv[])
+int main()
 {
     Worker p1("Pe6o", "CEO", 100000);
     Worker p2 = p1;

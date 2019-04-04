@@ -43,7 +43,7 @@ private:
 	char * name;
 };
 
-int main(int argc, char const *argv[])
+int main()
 {
 	char x[50] = "Pe6o";
 	Shallow s(x);

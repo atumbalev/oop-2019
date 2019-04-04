@@ -108,7 +108,7 @@ void stack<T>::push(const T& elem)
     m_data[m_size++] = elem;
 }
 
-int main(int argc, char const *argv[])
+int main()
 {
     stack<int> x;
     x.push(10);

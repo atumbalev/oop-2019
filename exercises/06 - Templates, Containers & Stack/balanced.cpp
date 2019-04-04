@@ -44,7 +44,7 @@ bool isBalanced(const char* expr)
     return st.empty();
 }
 
-int main(int argc, char const *argv[])
+int main()
 {
     char expr[50];
     std::cin >> expr;

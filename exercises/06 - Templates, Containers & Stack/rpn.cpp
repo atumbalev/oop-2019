@@ -42,7 +42,7 @@ double rpnEval(const char* expr)
     return st.top(); 
 }
 
-int main(int argc, char const *argv[])
+int main()
 {
     char expr[50];
     std::cin >> expr;

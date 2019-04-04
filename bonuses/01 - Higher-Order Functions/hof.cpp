@@ -46,7 +46,7 @@ void printIntArray(const IntArray& nums)
 	std::cout << std::endl;
 }
 
-int main(int argc, char const *argv[])
+int main()
 {
 	IntArray nums{{1,2,3,4,5}, 5};
 	printIntArray(map(nums, [](int num){ return num * 2;}));

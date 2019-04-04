@@ -32,7 +32,7 @@ public:
 	~Outer() { std::cout << "Destroy outer" << std::endl; }
 };
 
-int main(int argc, char const *argv[])
+int main()
 {
 	// Created in order of declaration (1 -> 2 -> 3)
 	// Destroyed in reverse order (3 -> 2 -> 1)
