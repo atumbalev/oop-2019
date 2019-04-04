@@ -10,10 +10,10 @@ bool closes(char newBracket, char oldBracket)
 {
     if (newBracket == ')')
     {
-        return oldBracket = '(';
+        return oldBracket == '(';
     }
 
-    return oldBracket = newBracket - 2;
+    return oldBracket == newBracket - 2;
 }
 
 bool isBalanced(const char* expr)
